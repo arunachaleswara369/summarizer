@@ -1,47 +1,27 @@
-name: Azure Workflow
+name: Azure CI/CD Pipeline
 
 on:
   push:
     branches:
       - main
-    paths-ignore:
-      - 'README.md'
-
-permissions:
-  id-token: write
-  contents: read
 
 jobs:
-  integration:
-    name: Continuous Integration
-    runs-on: ubuntu-latest
+  build-and-push-image:
+    name: Build and Push Docker Image
+    runs-on: self-hosted  # Replace 'self-hosted' with the label of your Azure VM runner.
+
     steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-      - name: Lint code
-        run: echo "Linting repository"
+      # Add any additional steps required for your build process (e.g., build, test, etc.)
 
-      - name: Run unit tests
-        run: echo "Running unit tests"
+      - name: Log in to Azure Container Registry
+        run: |
+          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
+          az acr login --name acrsummarizer
 
-  build-and-push-acr-image:
-    name: Continuous Delivery
-    needs: integration
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: Log in to Azure
-        uses: azure/login@v1
-        with:
-          creds: ${{ secrets.AZURE_CREDENTIALS }}
-
-      - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
-
-      - name: Build and push image to Azure Container Registry (ACR)
+      - name: Build and Push Docker Image to Azure Container Registry
         env:
           ACR_LOGIN_SERVER: ${{ secrets.ACR_LOGIN_SERVER }}
           ACR_USERNAME: ${{ secrets.ACR_USERNAME }}
@@ -52,41 +32,36 @@ jobs:
           az acr login --name $ACR_LOGIN_SERVER --username $ACR_USERNAME --password $ACR_PASSWORD
 
           # Build your Docker container
-          docker build -t $ACR_LOGIN_SERVER/textsummarizeracr:$IMAGE_TAG .
+          docker build -t $ACR_LOGIN_SERVER/acrsummarizer:$IMAGE_TAG .
 
           # Push the image to ACR
-          docker push $ACR_LOGIN_SERVER/textsummarizeracr:$IMAGE_TAG
+          docker push $ACR_LOGIN_SERVER/acrsummarizer:$IMAGE_TAG
 
-          echo "::set-output name=image::$ACR_LOGIN_SERVER/textsummarizeracr:$IMAGE_TAG"
+          echo "::set-output name=image::$ACR_LOGIN_SERVER/acrsummarizer:$IMAGE_TAG"
 
   continuous-deployment:
-    needs: build-and-push-acr-image
-    runs-on: self-hosted
+    name: Deploy to Azure VM
+    needs: build-and-push-image
+    runs-on: self-hosted  # Replace 'self-hosted' with the label of your Azure VM runner.
+
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
       - name: Log in to Azure
         uses: azure/login@v1
         with:
           creds: ${{ secrets.AZURE_CREDENTIALS }}
 
-      - name: Set up Azure CLI
-        uses: azure/setup-azure-cli@v1
-
-      - name: Pull latest images from ACR
+      - name: Copy Docker Image to Azure VM
         run: |
-          docker login ${{ secrets.ACR_LOGIN_SERVER }} -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
-          docker pull ${{ secrets.ACR_LOGIN_SERVER }}/textsummarizeracr:latest
+          docker save -o image.tar acrsummarizer.azurecr.io/acrsummarizer:latest
+          scp -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null image.tar azureadmin@20.172.222.50:~/image.tar
 
-      # - name: Stop and remove container if running (if needed)
-      #   run: |
-      #     docker ps -q --filter "name=texts" | grep -q . && docker stop texts && docker rm -fv texts
-
-      - name: Run Docker Image to serve users
+      - name: SSH into Azure VM and Load Docker Image
         run: |
-          docker run -d -p 8080:8080 --name=texts -e 'AZURE_CLIENT_ID=${{ secrets.AZURE_CLIENT_ID }}' -e 'AZURE_REGION=${{ secrets.AZURE_REGION }}' -e 'AZURE_SUBSCRIPTION_ID=${{ secrets.AZURE_SUBSCRIPTION_ID }}' -e 'AZURE_TENANT_ID=${{ secrets.AZURE_TENANT_ID }}' ${{ secrets.ACR_LOGIN_SERVER }}/my-function-app:latest
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null azureadmin@20.172.222.50 'docker load -i ~/image.tar'
 
-      - name: Clean previous images and containers (if needed)
+      - name: Run Docker Container on Azure VM
         run: |
-          docker system prune -f
+          ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null azureadmin@20.172.222.50 'docker run -d -p 8080:8080 --name acrsummarizer acrsummarizer.azurecr.io/acrsummarizer:latest'
