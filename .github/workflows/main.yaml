@@ -16,9 +16,12 @@ jobs:
 
       # Add any additional steps required for your build process (e.g., build, test, etc.)
 
+       - name: Set Azure Subscription
+        run: |
+          az account set --subscription "592c213c-2bb4-4718-a15e-6ade98087128"
+
       - name: Log in to Azure Container Registry
         run: |
-          az login --service-principal -u ${{ secrets.AZURE_CLIENT_ID }} -p ${{ secrets.AZURE_CLIENT_SECRET }} --tenant ${{ secrets.AZURE_TENANT_ID }}
           az acr login --name acrsummarizer
 
       - name: Build and Push Docker Image to Azure Container Registry
