@@ -16,7 +16,7 @@ jobs:
 
       # Add any additional steps required for your build process (e.g., build, test, etc.)
 
-       - name: Set Azure Subscription
+      - name: Set Azure Subscription
         run: |
           az account set --subscription 592c213c-2bb4-4718-a15e-6ade98087128
 
