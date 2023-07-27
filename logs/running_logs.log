@@ -125,3 +125,64 @@ x==========x]
 [2023-07-26 15:46:39,847: INFO: main: >>>>>> stage Model Evaluation stage completed <<<<<<
 
 x==========x]
+[2023-07-26 15:47:38,481: INFO: server: Started server process [21724]]
+[2023-07-26 15:47:38,481: INFO: on: Waiting for application startup.]
+[2023-07-26 15:47:38,481: INFO: on: Application startup complete.]
+[2023-07-26 15:47:38,481: INFO: server: Uvicorn running on http://0.0.0.0:8080 (Press CTRL+C to quit)]
+[2023-07-26 15:48:28,818: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-07-26 15:48:28,822: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 15:48:28,824: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 15:48:28,825: INFO: common: created directory at: artifacts]
+[2023-07-26 15:48:28,825: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-07-26 15:48:32,034: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 7903594
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "dbc016a060da18070593b83afff580c9b300f0b6ea4147a7988433e04df246ca"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 41A8:2C85:30B4E9:377351:64C0F2F9
+Accept-Ranges: bytes
+Date: Wed, 26 Jul 2023 10:18:35 GMT
+Via: 1.1 varnish
+X-Served-By: cache-qpg1238-QPG
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1690366714.301675,VS0,VE866
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: 1f595d05c8534de9238001ea0cf6a54a4f2d0f54
+Expires: Wed, 26 Jul 2023 10:23:35 GMT
+Source-Age: 0
+
+]
+[2023-07-26 15:48:32,152: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-07-26 15:48:32,153: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2023-07-26 15:48:32,158: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 15:48:32,160: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 15:48:32,160: INFO: common: created directory at: artifacts]
+[2023-07-26 15:48:32,161: INFO: common: created directory at: artifacts/data_validation]
+[2023-07-26 15:48:32,162: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 15:48:32,163: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2023-07-26 15:48:32,167: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 15:48:32,169: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 15:48:32,169: INFO: common: created directory at: artifacts]
+[2023-07-26 15:48:32,171: INFO: common: created directory at: artifacts/data_transformation]
+[2023-07-26 15:48:37,988: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 15:48:37,988: INFO: main: *******************]
+[2023-07-26 15:48:37,988: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2023-07-26 15:48:37,993: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 15:48:37,994: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 15:48:37,995: INFO: common: created directory at: artifacts]
+[2023-07-26 15:48:37,998: INFO: common: created directory at: artifacts/model_trainer]
