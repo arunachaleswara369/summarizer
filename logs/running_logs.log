@@ -1,0 +1,127 @@
+[2023-07-26 14:38:59,246: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-07-26 14:38:59,261: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:38:59,261: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:38:59,261: INFO: common: created directory at: artifacts]
+[2023-07-26 14:38:59,261: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-07-26 14:39:02,905: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 7903594
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "dbc016a060da18070593b83afff580c9b300f0b6ea4147a7988433e04df246ca"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 1B2E:4CB8:3082EF:3711B2:64C0E2B0
+Accept-Ranges: bytes
+Date: Wed, 26 Jul 2023 09:09:05 GMT
+Via: 1.1 varnish
+X-Served-By: cache-qpg1279-QPG
+X-Cache: MISS
+X-Cache-Hits: 0
+X-Timer: S1690362545.897918,VS0,VE751
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: a87a086a0d5d0da0b56ba979da24215d39e947d1
+Expires: Wed, 26 Jul 2023 09:14:05 GMT
+Source-Age: 0
+
+]
+[2023-07-26 14:39:03,031: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:39:03,031: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2023-07-26 14:39:03,031: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:39:03,031: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:39:03,031: INFO: common: created directory at: artifacts]
+[2023-07-26 14:39:03,031: INFO: common: created directory at: artifacts/data_validation]
+[2023-07-26 14:39:03,031: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:39:03,031: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2023-07-26 14:39:03,031: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:39:03,031: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:39:03,046: INFO: common: created directory at: artifacts]
+[2023-07-26 14:39:03,046: INFO: common: created directory at: artifacts/data_transformation]
+[2023-07-26 14:39:11,601: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:39:11,601: INFO: main: *******************]
+[2023-07-26 14:39:11,601: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2023-07-26 14:39:11,608: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:39:11,608: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:39:11,608: INFO: common: created directory at: artifacts]
+[2023-07-26 14:39:11,608: INFO: common: created directory at: artifacts/model_trainer]
+[2023-07-26 14:44:48,518: INFO: main: >>>>>> stage Data Ingestion stage started <<<<<<]
+[2023-07-26 14:44:48,518: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:44:48,534: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:44:48,534: INFO: common: created directory at: artifacts]
+[2023-07-26 14:44:48,534: INFO: common: created directory at: artifacts/data_ingestion]
+[2023-07-26 14:44:51,644: INFO: data_ingestion: artifacts/data_ingestion/data.zip download! with following info: 
+Connection: close
+Content-Length: 7903594
+Cache-Control: max-age=300
+Content-Security-Policy: default-src 'none'; style-src 'unsafe-inline'; sandbox
+Content-Type: application/zip
+ETag: "dbc016a060da18070593b83afff580c9b300f0b6ea4147a7988433e04df246ca"
+Strict-Transport-Security: max-age=31536000
+X-Content-Type-Options: nosniff
+X-Frame-Options: deny
+X-XSS-Protection: 1; mode=block
+X-GitHub-Request-Id: 1B2E:4CB8:3082EF:3711B2:64C0E2B0
+Accept-Ranges: bytes
+Date: Wed, 26 Jul 2023 09:14:54 GMT
+Via: 1.1 varnish
+X-Served-By: cache-qpg1224-QPG
+X-Cache: HIT
+X-Cache-Hits: 0
+X-Timer: S1690362894.056197,VS0,VE300
+Vary: Authorization,Accept-Encoding,Origin
+Access-Control-Allow-Origin: *
+Cross-Origin-Resource-Policy: cross-origin
+X-Fastly-Request-ID: d5a0b3ea2dd5a572001bbe5e9f1590b8fd0bc7e1
+Expires: Wed, 26 Jul 2023 09:19:54 GMT
+Source-Age: 0
+
+]
+[2023-07-26 14:44:51,816: INFO: main: >>>>>> stage Data Ingestion stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:44:51,816: INFO: main: >>>>>> stage Data Validation stage started <<<<<<]
+[2023-07-26 14:44:51,816: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:44:51,816: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:44:51,816: INFO: common: created directory at: artifacts]
+[2023-07-26 14:44:51,816: INFO: common: created directory at: artifacts/data_validation]
+[2023-07-26 14:44:51,832: INFO: main: >>>>>> stage Data Validation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:44:51,832: INFO: main: >>>>>> stage Data Transformation stage started <<<<<<]
+[2023-07-26 14:44:51,832: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:44:51,832: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:44:51,832: INFO: common: created directory at: artifacts]
+[2023-07-26 14:44:51,832: INFO: common: created directory at: artifacts/data_transformation]
+[2023-07-26 14:44:57,240: INFO: main: >>>>>> stage Data Transformation stage completed <<<<<<
+
+x==========x]
+[2023-07-26 14:44:57,240: INFO: main: *******************]
+[2023-07-26 14:44:57,240: INFO: main: >>>>>> stage Model Trainer stage started <<<<<<]
+[2023-07-26 14:44:57,256: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 14:44:57,256: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 14:44:57,256: INFO: common: created directory at: artifacts]
+[2023-07-26 14:44:57,256: INFO: common: created directory at: artifacts/model_trainer]
+[2023-07-26 15:41:46,791: INFO: main: >>>>>> stage Model Trainer stage completed <<<<<<
+
+x==========x]
+[2023-07-26 15:41:46,800: INFO: main: *******************]
+[2023-07-26 15:41:46,800: INFO: main: >>>>>> stage Model Evaluation stage started <<<<<<]
+[2023-07-26 15:41:46,813: INFO: common: yaml file: config\config.yaml loaded successfully]
+[2023-07-26 15:41:46,822: INFO: common: yaml file: params.yaml loaded successfully]
+[2023-07-26 15:41:46,824: INFO: common: created directory at: artifacts]
+[2023-07-26 15:41:46,824: INFO: common: created directory at: artifacts/model_evaluation]
+[2023-07-26 15:46:39,460: INFO: rouge_scorer: Using default tokenizer.]
+[2023-07-26 15:46:39,847: INFO: main: >>>>>> stage Model Evaluation stage completed <<<<<<
+
+x==========x]
