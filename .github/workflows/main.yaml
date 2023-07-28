@@ -6,10 +6,10 @@ on:
       - master
 
 env:
-  ACR_NAME: nlpacr3
+  ACR_NAME: nlpacr369
   IMAGE_TAG: latest
   VM_SSH_USER: azureuser
-  VM_IP_ADDRESS: 52.149.152.162
+  VM_IP_ADDRESS: 20.185.66.126
   AZURE_CLIENT_ID: ${{ secrets.AZURE_CLIENT_ID }}
   AZURE_CLIENT_SECRET: ${{ secrets.AZURE_CLIENT_SECRET }}
   AZURE_TENANT_ID: ${{ secrets.AZURE_TENANT_ID }}
